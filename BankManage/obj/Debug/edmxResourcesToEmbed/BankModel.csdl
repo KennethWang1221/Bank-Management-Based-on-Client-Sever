@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BankModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BankEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="AccountInfo" EntityType="BankModel.AccountInfo" />
+    <EntitySet Name="EmployeeInfo" EntityType="BankModel.EmployeeInfo" />
+    <EntitySet Name="LoginInfo" EntityType="BankModel.LoginInfo" />
+    <EntitySet Name="MoneyInfo" EntityType="BankModel.MoneyInfo" />
+    <EntitySet Name="RateInfo" EntityType="BankModel.RateInfo" />
+  </EntityContainer>
+  <EntityType Name="AccountInfo">
+    <Key>
+      <PropertyRef Name="accountNo" />
+    </Key>
+    <Property Name="accountNo" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="true" />
+    <Property Name="IdCard" Type="String" MaxLength="18" Unicode="true" FixedLength="true" />
+    <Property Name="accountName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="accountPass" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="accountType" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="EmployeeInfo">
+    <Key>
+      <PropertyRef Name="EmployeeNo" />
+    </Key>
+    <Property Name="EmployeeNo" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="true" />
+    <Property Name="EmployeeName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="sex" Type="String" MaxLength="1" Unicode="true" FixedLength="true" />
+    <Property Name="workDate" Type="DateTime" Precision="3" />
+    <Property Name="telphone" Type="String" MaxLength="11" Unicode="true" FixedLength="false" />
+    <Property Name="idCard" Type="String" MaxLength="18" Unicode="true" FixedLength="true" />
+    <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="classid" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="gongzi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LoginInfo">
+    <Key>
+      <PropertyRef Name="Bno" />
+    </Key>
+    <Property Name="Bno" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="MoneyInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="accountNo" Type="String" MaxLength="6" Unicode="true" FixedLength="true" Nullable="false" />
+    <Property Name="dealDate" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="dealType" Type="String" MaxLength="8" Unicode="true" FixedLength="false" Nullable="false" />
+    <Property Name="dealMoney" Type="Double" Nullable="false" />
+    <Property Name="balance" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RateInfo">
+    <Key>
+      <PropertyRef Name="rationType" />
+    </Key>
+    <Property Name="rationType" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="rationValue" Type="Double" />
+  </EntityType>
+</Schema>
